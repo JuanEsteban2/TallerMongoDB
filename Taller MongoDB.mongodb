@@ -1,0 +1,56 @@
+const database = 'Compañia';
+const collection = 'Empleados';
+
+// Create a new database.
+use(database);
+
+// Create a new collection.
+//db.createCollection(collection);
+
+// Punto 1: Insertar un documento en Empleados
+//db.Empleados.insertOne({'_id': 0, 'Nombre': 'Pepe', 'Apellido': 'Perez', 'Cargo': 'Contador', 'Salario': '3000000'});
+
+// Punto 2: Insertas dos documentos en Empleados
+//db.Empleados.insertMany([{'_id': 1, 'Nombre': 'Luis', 'Apellido': 'Rojas', 'Cargo': 'Contador', 'Salario': '2000000'}, 
+//                         {'_id': 2, 'Nombre': 'Maria', 'Apellido': 'Diaz', 'Cargo': 'Contador', 'Salario': '1500000'}]);
+
+// Punto 4: Insertar cuatro documentos en Empresa
+/*db.Empresa.insertMany([{'Nombre': 'Empresa A', 'Dirección': 'Calle Simpre Viva', 'Telefono': 1234567890, 'Fecha de Creación': new Date('2001-10-14')},
+                       {'Nombre': 'Empresa B', 'Dirección': 'Privet Drive', 'Telefono': 7891245630, 'Fecha de Creación': new Date('2000-11-20')},
+                       {'Nombre': 'Empresa C', 'Dirección': 'Baker Street', 'Telefono': 8711234456, 'Fecha de Creación': new Date('1999-07-22')}]);*/
+
+// Punto 5: Añadir código de empresa a cada empleado:
+//db.Empleados.replaceOne({'_id': 0}, {'_id': 0, 'Nombre': 'Pepe', 'Apellido': 'Perez', 'Cargo': 'Contador', 'Salario': 3000000, 'Empresa_Id': ObjectId("628af94d9e08d2d6bc6789e9")})
+//db.Empleados.replaceOne({'_id': 1}, {'_id': 1, 'Nombre': 'Luis', 'Apellido': 'Rojas', 'Cargo': 'Contador', 'Salario': 2000000, 'Empresa_Id': ObjectId("628af94d9e08d2d6bc6789e9")})
+//db.Empleados.replaceOne({'_id': 2}, {'_id': 2, 'Nombre': 'Maria', 'Apellido': 'Diaz', 'Cargo': 'Contador', 'Salario': 1500000, 'Empresa_Id': ObjectId("628af94d9e08d2d6bc6789e8")})
+
+// Punto 6: Consultar empleado por empresa
+/*db.Empresa.aggregate([
+    {
+        $match: {
+            _id: ObjectId("628af94d9e08d2d6bc6789e9")
+            }
+    }
+    ,{
+        $lookup: {
+            from: "Empleados",
+            localField: "_id",
+            foreignField: "Empresa_Id",
+            as: "Empleados "
+            }
+    }
+]);*/
+
+// Punto 7: Eliminar empleados de determinada empresa
+/*db.Empleados.deleteMany({"Empresa_Id": ObjectId("628af94d9e08d2d6bc6789e9")})
+db.Empleados.find()*/
+
+// Punto 8: Actualizar el nombre de una empresa
+//db.Empresa.updateOne({'_id': ObjectId("628af94d9e08d2d6bc6789e8")}, {$set: {'Nombre': 'Universidad Ean'}})
+
+// Punto 9: Consulta de empleados con sueldo dentro de un rango
+//db.Empleados.find({$and: [{'Salario': {$gte: 1000000}}, {'Salario': {$lte: 6000000}}]})
+
+// Punto 10: Sumar sueldos de la empresa Universidad Ean**
+//db.Empleados.find({'_id': ObjectId("628af94d9e08d2d6bc6789e8")}, {"Salario": 1})
+
